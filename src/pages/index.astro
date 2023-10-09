@@ -4,9 +4,26 @@ import Card from "../components/Card.astro";
 ---
 
 <Layout title="Zack Roessler">
-  <main>
-    <h1 class="text-9xl font-medium">Zack Roessler</h1>
+  <main class="">
+    <div class="md:mx-52 mt-40">
+      <h3 class="text-6xl font-medium text-primary/50 mb-6">I am:</h3>
+      <h1 class="text-9xl font-medium text-primary mb-9">Zack Roessler,</h1>
+      <h6 class="text-3xl font-light text-primary leading-normal xl:mr-96">
+        a software developer, with a passion for machine learning and ai
+      </h6>
+      <div class="container" id="cube-container">
+        <div id="cube">
+          <div class="text-center" id="top">top</div>
+          <div id="left">left</div>
+          <div id="right">right</div>
+        </div>
+      </div>
+    </div>
   </main>
 </Layout>
+
+<script>
+  import "../scripts/rotatecube.js";
+</script>
 
 <style></style>
