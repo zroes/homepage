@@ -29,7 +29,7 @@ cube.castShadow = true
 
 scene.add(cube)
 
-const topLight = new THREE.SpotLight(0xEEEDED, 10000, 0)
+const topLight = new THREE.SpotLight(0xB6C6F0, 10000, 0)
 topLight.position.set(0, 80, 10)
 topLight.castShadow = true
 
@@ -49,16 +49,25 @@ function animate() {
   document.onmousemove = (e) => {
     let x = e.clientX - window.innerWidth / 2
     let y = e.clientY - window.innerHeight / 2
+
     pointLight.position.setX(x / -25)
     pointLight.position.setY(5 + Math.abs(y / -25))
     let q = 0.0015
     x = x * q
     y = y * q
+    // if (Math.abs(cube.rotation.x - y) > 0.05) {
+    //   // if (cube.rotation.x != y)
+    //   if (cube.rotation.x < y)
+    //     cube.rotation.x += 0.001
+    //   else
+    //     cube.rotation.x -= 0.001
+    // }
+    // else
     cube.rotation.x = y
     cube.rotation.y = x
     // cube.rotation.z += .001
   }
-  cube.rotation.z += 0.003
+  cube.rotation.z += 0.005
 
   // console.log(forward)
   if (forward == true) {

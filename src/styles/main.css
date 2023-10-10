@@ -9,13 +9,17 @@ html {
 }
 
 canvas {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 }
 
 main {
   position: absolute;
+}
+
+.border-custom {
+  border-bottom: 8px solid;
 }
 
 .cube-container {
