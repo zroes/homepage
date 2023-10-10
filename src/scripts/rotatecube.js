@@ -1,26 +1,21 @@
-let constrain = 30
-let mouseOverContainer = document.getElementById("cube-container")
-let ex1Layer = document.getElementById("cube")
+function rotateCube(e) {
+  let cube = document.getElementsByClassName('cube')
+  let horizontal = document.getElementsByClassName('horizontal')
 
-function transforms(x, y, el) {
-  let box = el.getBoundingClientRect()
-  let calcX = -(y - box.y - (box.height / 2)) / constrain
-  let calcY = (x - box.x - (box.width / 2)) / constrain
+  let x = e.clientX - window.innerWidth / 2
+  let y = e.clientY - window.innerHeight / 2
+  let q = 0.15
+  x = x * q * 1.25
+  // console.log(x)
+  y = -y * q * 1.25
 
-  return "scale(4) perspective(100px) "
-    + "   rotateX(" + calcX + "deg) "
-    + "   rotateY(" + calcY + "deg) "
-};
+  for (let i = 0; i < cube.length; i++) {
+    cube[i].style.transform = "rotateY(" + x + "deg) rotateX(" + y + "deg) rotateX(50deg) rotateZ(135deg)"
+  }
 
-function transformElement(el, xyEl) {
-  el.style.transform = transforms.apply(null, xyEl)
+  for (let j = 0; j < horizontal.length; j++) {
+    horizontal[j].style.transform = "rotateY(" + x + "deg) rotateX(" + y + "deg)"
+  }
 }
 
-mouseOverContainer.onmousemove = function (e) {
-  let xy = [e.clientX, e.clientY]
-  let position = xy.concat([ex1Layer])
-
-  window.requestAnimationFrame(function () {
-    transformElement(ex1Layer, position)
-  })
-}
+document.addEventListener("mousemove", rotateCube)
