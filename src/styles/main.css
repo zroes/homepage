@@ -8,7 +8,17 @@ html {
   font-family: 'Roboto Mono', monospace;
 }
 
-.canvas {
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+main {
+  position: absolute;
+}
+
+.cube-container {
   position: relative;
   top: 0;
   left: 0;
@@ -82,10 +92,4 @@ html {
   transform-origin: bottom center;
   transform: rotateX(-90deg);
   /* background-color: rgba(236, 25, 255, 0.4); */
-}
-
-#cube-shadow {
-  position: relative;
-  top: 350px;
-  transform: rotateX(85deg) rotateZ(0deg);
 }
