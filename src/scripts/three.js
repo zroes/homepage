@@ -50,7 +50,7 @@ function animate() {
     let x = e.clientX - window.innerWidth / 2
     let y = e.clientY - window.innerHeight / 2
     pointLight.position.setX(x / -25)
-    pointLight.position.setY(10 + (y / -25))
+    pointLight.position.setY(5 + Math.abs(y / -25))
     let q = 0.0015
     x = x * q
     y = y * q
