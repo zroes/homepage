@@ -22,7 +22,13 @@ renderer.setSize(window.innerWidth, window.innerHeight)
 camera.position.setZ(45)
 
 const geometry = new THREE.BoxGeometry(20, 20, 20)
+const normal = new THREE.TextureLoader().load('https://i.imgur.com/DqcP8Qk.png')
 const material = new THREE.MeshPhongMaterial({ color: 0x212532 })
+// material.displacementMap = normal
+material.bumpMap = normal
+material.bumpScale = 0.3
+material.shininess = 40
+// material.reflectivity = 0
 const cube = new THREE.Mesh(geometry, material)
 cube.position.set(0, 14, -15)
 cube.castShadow = true
@@ -50,34 +56,32 @@ function animate() {
     let x = e.clientX - window.innerWidth / 2
     let y = e.clientY - window.innerHeight / 2
 
-    pointLight.position.setX(x / -25)
-    pointLight.position.setY(5 + Math.abs(y / -25))
+    // pointLight.position.setX(x / -25)
+    // pointLight.position.setY(5 + Math.abs(y / -25))
+    pointLight.position.x = THREE.MathUtils.lerp(pointLight.position.x, x / -25, 0.03)
+    pointLight.position.y = THREE.MathUtils.lerp(pointLight.position.y, 5 + Math.abs(y / -25), 0.03)
     let q = 0.0015
     x = x * q
     y = y * q
-    // if (Math.abs(cube.rotation.x - y) > 0.05) {
-    //   // if (cube.rotation.x != y)
-    //   if (cube.rotation.x < y)
-    //     cube.rotation.x += 0.001
-    //   else
-    //     cube.rotation.x -= 0.001
-    // }
-    // else
-    cube.rotation.x = y
-    cube.rotation.y = x
-    // cube.rotation.z += .001
+
+    // cube.rotation.x = y
+    cube.rotation.x = THREE.MathUtils.lerp(cube.rotation.x, y, 0.08)
+    cube.rotation.y = THREE.MathUtils.lerp(cube.rotation.y, x, 0.08)
+
   }
   cube.rotation.z += 0.005
+  // cube.rotation.x += 0.002
+  cube.rotation.y += 0.003
 
   // console.log(forward)
   if (forward == true) {
-    pointLight.position.z += 0.02
+    pointLight.position.z += 0.04
     if (pointLight.position.z > 12)
       forward = false
   }
   else {
-    pointLight.position.z -= 0.02
-    if (pointLight.position.z <= 5)
+    pointLight.position.z -= 0.04
+    if (pointLight.position.z <= 3)
       forward = true
   }
   renderer.render(scene, camera)
