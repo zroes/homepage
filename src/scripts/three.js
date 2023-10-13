@@ -9,7 +9,7 @@ const scene = new THREE.Scene()
 
 scene.background = new THREE.Color(0x2D3142)
 
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000)
 
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector("#bg")
@@ -19,9 +19,9 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap
 
 renderer.setPixelRatio(window.devicePixelRatio)
 renderer.setSize(window.innerWidth, window.innerHeight)
-camera.position.setZ(45)
+camera.position.setZ(50)
 
-const geometry = new THREE.BoxGeometry(20, 20, 20)
+const geometry = new THREE.BoxGeometry(17, 17, 17)
 const normal = new THREE.TextureLoader().load('https://i.imgur.com/DqcP8Qk.png')
 const material = new THREE.MeshPhongMaterial({ color: 0x212532 })
 // material.displacementMap = normal
@@ -65,22 +65,26 @@ function animate() {
     y = y * q
 
     // cube.rotation.x = y
-    cube.rotation.x = THREE.MathUtils.lerp(cube.rotation.x, y, 0.08)
-    cube.rotation.y = THREE.MathUtils.lerp(cube.rotation.y, x, 0.08)
 
+    cube.rotation.x = THREE.MathUtils.lerp(cube.rotation.x, y, 0.08)
+
+    cube.rotation.y = THREE.MathUtils.lerp(cube.rotation.y, x, 0.08)
+    // console.log(cube.rotation.x, cube.rotation.y)
   }
-  cube.rotation.z += 0.005
+  cube.rotation.z += 0.006
   // cube.rotation.x += 0.002
-  cube.rotation.y += 0.003
+  cube.rotation.y += 0.002
 
   // console.log(forward)
   if (forward == true) {
     pointLight.position.z += 0.04
+    cube.position.y -= 0.006
     if (pointLight.position.z > 12)
       forward = false
   }
   else {
     pointLight.position.z -= 0.04
+    cube.position.y += 0.006
     if (pointLight.position.z <= 3)
       forward = true
   }
