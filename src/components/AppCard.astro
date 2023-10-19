@@ -5,15 +5,18 @@ interface Props {
   imgPath: string;
   tags: string[];
   color: string;
+  link: string
 }
 
-const { title, desc, imgPath, tags, color } = Astro.props;
+const { title, desc, imgPath, tags, color, link } = Astro.props;
 ---
 
 <div>
+  <a href={link}>
   <img src={imgPath} alt={title} />
   <h3 class="text-primary">{title}</h3>
   <p class="text-primary">{desc}</p>
+  </a>
   <!-- <div class="tags">
     {
       tags.map((tag) => (
