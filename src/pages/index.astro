@@ -1,5 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import AppCard from "../components/AppCard.astro"
+const towerDesc = "a website that enables users to organize, administer, and participate in events. users can easily create and join, events from the homepage, and manage their events from the account page."
+const groceryDesc = "a design concept for a website that allows users to compare prices between different grocery stores. users can create lists and discover which grocery store near them has the best prices for the things they want"
+const cookieDesc = "a simple site for making anonymous blog posts. users can vent their thoughts out for strangers to read, and then randomly browse and comment on the thoughts of other users. "
 ---
 
 <script>
@@ -46,12 +50,9 @@ import Layout from "../layouts/Layout.astro";
         <div>
           <h1 class="text-6xl font-medium text-primary">Applications</h1>
           <div>
-            <img src="/images/tower_thumb.png" alt="tower thumbnail" />
-            <h3>
-              <a href="https://zroes-tower.onrender.com/#/" target="_blank"
-                >Tower</a
-              >
-            </h3>
+            <AppCard title="Tower" desc={towerDesc} imgPath="/images/tower.png"/>
+            <AppCard title="Grocery Run" desc={groceryDesc} imgPath="/images/grocery-run.png"/>
+            <AppCard title="Thoughts Cookie" desc={cookieDesc} imgPath="/images/thoughts-cookie.png"/>
           </div>
         </div>
       </div>
