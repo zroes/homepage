@@ -11,12 +11,16 @@ interface Props {
 const { title, desc, imgPath, tags, color, link } = Astro.props;
 ---
 
-<div>
-  <a href={link}>
-  <img src={imgPath} alt={title} />
-  <h3 class="text-primary">{title}</h3>
-  <p class="text-primary">{desc}</p>
-  </a>
+<div class="bg-[#282C3C] rounded-md outline outline-2 outline-offset-4 outline-dark/0 shadow-md hover:outline-verdigris hover:scale-105 hover:shadow-lg ease-in duration-100">
+  <div class="">
+    <a href={link}>
+    <img class="rounded-md" src={imgPath} alt={title} />
+    <div class="p-5">
+      <h3 class="text-primary">{title}</h3>
+      <p class="text-primary">{desc}</p>
+    </div>
+    </a>
+  </div>
   <!-- <div class="tags">
     {
       tags.map((tag) => (
