@@ -9,9 +9,9 @@ html {
   /* cursor: none; */
 }
 
-a {
-  /* cursor: none; */
-}
+/* a {
+  cursor: none;
+} */
 
 canvas {
   position: fixed;

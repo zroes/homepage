@@ -102,7 +102,7 @@ window.addEventListener("mousemove", function (e) {
 
 })
 
-const cards = document.getElementsByClassName("app-card")
+const cards = document.getElementsByClassName("select")
 Array.from(cards).forEach((card) => {
   card.addEventListener(
     "mouseover",

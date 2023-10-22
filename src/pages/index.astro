@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import AppCard from "../components/AppCard.astro";
 import Spacer from "../components/Spacer.astro";
+import Nav from "../components/Nav.astro";
 
 const towerDesc =
   "a website that enables users to organize, administer, and participate in events. users can easily create and join events from the homepage, and manage their events from the account page.";
@@ -11,11 +12,9 @@ const cookieDesc =
   "a simple site for making anonymous blog posts. users can vent their thoughts out for strangers to read, and then randomly browse and comment on the thoughts of other users. ";
 ---
 
-<script>
-  // import "../scripts/rotatecube.js";
-</script>
 <Layout title="Zack Roessler">
-  <main class="mx-12">
+  <main class="">
+    <Nav />
     <div class="md:mx-52">
       <div class="">
         <Spacer />

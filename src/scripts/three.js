@@ -43,8 +43,7 @@ topLight.castShadow = true
 const pointLight = new THREE.PointLight(0xFF8845, 4000, 500)
 
 const cursorLight = new THREE.PointLight(0x38A3A5, 800, 0)
-// pointLight.position.set(16, 15, 25)
-// pointLight.castShadow = true
+
 scene.add(topLight, pointLight, cursorLight)
 
 // const lightHelper = new THREE.PointLightHelper(cursorLight)
@@ -101,6 +100,7 @@ ambientLight.position.set(0, -30, 10)
 scene.add(ambientLight)
 const planeGeometry = new THREE.PlaneGeometry(150, 500, 32, 32)
 const planeMaterial = new THREE.MeshPhysicalMaterial({ color: 0x282C3C })
+// const planeMaterial = new THREE.ShadowMaterial({ color: 0x282C3C })
 planeMaterial.dithering = true
 const plane = new THREE.Mesh(planeGeometry, planeMaterial)
 plane.rotation.x = -1.3
