@@ -1,25 +1,34 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import AppCard from "../components/AppCard.astro"
-const towerDesc = "a website that enables users to organize, administer, and participate in events. users can easily create and join events from the homepage, and manage their events from the account page."
-const groceryDesc = "a design concept for a website that allows users to compare prices between different grocery stores. users can create lists and discover which grocery store near them has the best prices for the items on their list"
-const cookieDesc = "a simple site for making anonymous blog posts. users can vent their thoughts out for strangers to read, and then randomly browse and comment on the thoughts of other users. "
+import AppCard from "../components/AppCard.astro";
+import Spacer from "../components/Spacer.astro";
+
+const towerDesc =
+  "a website that enables users to organize, administer, and participate in events. users can easily create and join events from the homepage, and manage their events from the account page.";
+const groceryDesc =
+  "a design concept for a website that allows users to compare prices between different grocery stores. users can create lists and discover which grocery store near them has the best prices for the items on their list";
+const cookieDesc =
+  "a simple site for making anonymous blog posts. users can vent their thoughts out for strangers to read, and then randomly browse and comment on the thoughts of other users. ";
 ---
 
 <script>
   // import "../scripts/rotatecube.js";
 </script>
 <Layout title="Zack Roessler">
-  <main class="mx-8">
+  <main class="mx-16">
     <div class="md:mx-52">
-      <div class="mt-40">
+      <div class="">
+        <Spacer />
         <h3 class="text-6xl font-medium text-primary/50 mb-6">I am:</h3>
-        <h1 class="text-9xl font-medium text-primary mb-9">Zack Roessler,</h1>
+        <h1 class="text-9xl font-medium text-primary mb-9">Zack Roessler</h1>
         <h6 class="text-3xl font-light text-primary leading-normal xl:mr-96">
           a software developer, with a passion for machine learning and ai
         </h6>
       </div>
-      <div class="mt-96">
+      <Spacer />
+      <Spacer />
+      <Spacer />
+      <div class="">
         <h1 class="text-6xl font-medium text-primary mb-9">Expertise</h1>
         <div class="grid grid-cols-2 gap-x-80 justify-items-end mt-24">
           <div class="relative">
@@ -50,9 +59,24 @@ const cookieDesc = "a simple site for making anonymous blog posts. users can ven
         <div>
           <h1 class="text-6xl font-medium text-primary">Applications</h1>
           <div class="my-16 grid md:grid-cols-2 gap-16">
-            <AppCard title="Tower" desc={towerDesc} imgPath="/images/tower.png" link="https://zroes-tower.onrender.com/"/>
-            <AppCard title="Grocery Run" desc={groceryDesc} imgPath="/images/grocery-run.png" link="https://grocery-run.onrender.com/"/>
-            <AppCard title="Thoughts Cookie" desc={cookieDesc} imgPath="/images/thoughts-cookie.png" link="https://thoughts-cookie.netlify.app/#/"/>
+            <AppCard
+              title="Tower"
+              desc={towerDesc}
+              imgPath="/images/tower.png"
+              link="https://zroes-tower.onrender.com/"
+            />
+            <AppCard
+              title="Grocery Run"
+              desc={groceryDesc}
+              imgPath="/images/grocery-run.png"
+              link="https://grocery-run.onrender.com/"
+            />
+            <AppCard
+              title="Thoughts Cookie"
+              desc={cookieDesc}
+              imgPath="/images/thoughts-cookie.png"
+              link="https://thoughts-cookie.netlify.app/#/"
+            />
           </div>
         </div>
       </div>

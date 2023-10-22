@@ -3,22 +3,24 @@ interface Props {
   title: string;
   desc: string;
   imgPath: string;
-  tags: string[];
-  color: string;
-  link: string
+  // tags: string[];
+  // color: string;
+  link: string;
 }
 
-const { title, desc, imgPath, tags, color, link } = Astro.props;
+const { title, desc, imgPath, link } = Astro.props;
 ---
 
-<div class="bg-[#282C3C] rounded-md outline outline-2 outline-offset-4 outline-dark/0 shadow-md hover:outline-verdigris hover:scale-105 hover:shadow-lg ease-in duration-100">
-  <div class="">
+<div
+  class="bg-[#282C3C] rounded-md outline outline-2 outline-offset-4 outline-dark/0 shadow-md hover:outline-verdigris hover:scale-105 hover:shadow-lg ease-in duration-100"
+>
+  <div class="app-card">
     <a href={link}>
-    <img class="rounded-md" src={imgPath} alt={title} />
-    <div class="p-5">
-      <h3 class="text-primary">{title}</h3>
-      <p class="text-primary">{desc}</p>
-    </div>
+      <img class="rounded-md" src={imgPath} alt={title} />
+      <div class="p-5">
+        <h3 class="text-primary">{title}</h3>
+        <p class="text-primary">{desc}</p>
+      </div>
     </a>
   </div>
   <!-- <div class="tags">

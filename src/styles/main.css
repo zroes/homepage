@@ -6,6 +6,11 @@
 
 html {
   font-family: 'Roboto Mono', monospace;
+  cursor: none;
+}
+
+a {
+  cursor: none;
 }
 
 canvas {
@@ -22,78 +27,19 @@ main {
   border-bottom: 8px solid;
 }
 
-.cube-container {
-  position: relative;
+
+
+.circle {
+  height: 32px;
+  width: 32px;
+  border-radius: 32px;
+  background-color: #e57b0a;
+  opacity: 0.1;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  perspective: 850px;
-  z-index: -1;
-  opacity: 0.40;
-}
-
-.cube {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  transform-origin: 50% 50% 150px;
-  transform-style: preserve-3d;
-  transition: all 0.1s ease-out;
-  transform: rotateX(50deg) rotateZ(135deg);
-}
-
-
-.cube .face {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 180px;
-  color: transparent;
-  -webkit-text-stroke: 5px white;
-
-}
-
-.cube .face:nth-child(1) {
-  transform: translateZ(300px);
-
-  /* background-color: rgba(255, 25, 25, 0.4); */
-}
-
-.cube .face:nth-child(2) {
-  transform-origin: center right;
-  transform: rotateY(90deg);
-  /* background-color: rgba(255, 171, 25, 0.4); */
-}
-
-.cube .face:nth-child(3) {
-  transform-origin: center center;
-  transform: rotateY(180deg);
-  /* background-color: rgba(25, 255, 63, 0.4); */
-}
-
-.cube .face:nth-child(4) {
-  transform-origin: center left;
-  transform: rotateY(-90deg);
-  /* background-color: rgba(25, 255, 236, 0.4); */
-}
-
-.cube .face:nth-child(5) {
-  transform-origin: top center;
-  transform: rotateX(90deg);
-  /* background-color: rgba(25, 25, 255, 0.4); */
-}
-
-.cube .face:nth-child(6) {
-  transform-origin: bottom center;
-  transform: rotateX(-90deg);
-  /* background-color: rgba(236, 25, 255, 0.4); */
+  pointer-events: none;
+  transition: background-color 0.1s ease, transform 0.2s ease-out;
+  z-index: 10;
+  /* so that it stays on top of all other elements */
 }
