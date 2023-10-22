@@ -6,11 +6,11 @@
 
 html {
   font-family: 'Roboto Mono', monospace;
-  cursor: none;
+  /* cursor: none; */
 }
 
 a {
-  cursor: none;
+  /* cursor: none; */
 }
 
 canvas {

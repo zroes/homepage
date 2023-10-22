@@ -40,11 +40,13 @@ topLight.position.set(0, 80, 10)
 topLight.castShadow = true
 
 const pointLight = new THREE.PointLight(0xFF8845, 4000, 500)
+
+const cursorLight = new THREE.PointLight(0x38A3A5, 1500, 100)
 // pointLight.position.set(16, 15, 25)
 // pointLight.castShadow = true
-scene.add(topLight, pointLight)
+scene.add(topLight, pointLight, cursorLight)
 
-// const lightHelper = new THREE.PointLightHelper(pointLight)
+// const lightHelper = new THREE.PointLightHelper(cursorLight)
 // scene.add(lightHelper)
 
 
@@ -60,6 +62,8 @@ function animate() {
     // pointLight.position.setY(5 + Math.abs(y / -25))
     pointLight.position.x = THREE.MathUtils.lerp(pointLight.position.x, x / -25, 0.03)
     pointLight.position.y = THREE.MathUtils.lerp(pointLight.position.y, 5 + Math.abs(y / -25), 0.03)
+    cursorLight.position.x = x / 14.2
+    cursorLight.position.y = 2 + y / -14.2
     let q = 0.0015
     x = x * q
     y = y * q
