@@ -135,7 +135,7 @@ function circleOrange() {
 function circleNormal() {
   circles.forEach(function (circle, index) {
     circle.style.background = colors[Math.floor((index - 1) / 2)]
-    circle.style.transform = "scale(1.0)"
+    circle.style.transform = "scale(1.3)"
     circle.style.opacity = 0.0013 * (index + 15)
     if (index <= 3) {
       circle.style.opacity = 0

@@ -28,6 +28,7 @@ const material = new THREE.MeshPhongMaterial({ color: 0x212532 })
 material.bumpMap = normal
 material.bumpScale = 0.3
 material.shininess = 40
+material.dithering = true
 // material.reflectivity = 0
 const cube = new THREE.Mesh(geometry, material)
 cube.position.set(0, 14, -15)
@@ -99,7 +100,8 @@ const ambientLight = new THREE.AmbientLight({ color: 0xFFFFFF }, 3)
 ambientLight.position.set(0, -30, 10)
 scene.add(ambientLight)
 const planeGeometry = new THREE.PlaneGeometry(150, 500, 32, 32)
-const planeMaterial = new THREE.MeshPhongMaterial({ color: 0x282C3C })
+const planeMaterial = new THREE.MeshPhysicalMaterial({ color: 0x282C3C })
+planeMaterial.dithering = true
 const plane = new THREE.Mesh(planeGeometry, planeMaterial)
 plane.rotation.x = -1.3
 plane.rotation.z = 1.55
