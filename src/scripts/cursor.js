@@ -93,11 +93,8 @@ const orangeColors = [
 circles.forEach(function (circle, index) {
   circle.x = 0
   circle.y = 0
-  circle.style.background = colors[Math.floor((index - 1) / 2)]
-  circle.style.opacity = 0.0013 * (index + 15)
-  if (index == 25)
-    circle.style.opacity = 0.1
 })
+
 
 window.addEventListener("mousemove", function (e) {
   coords.x = e.clientX
@@ -127,9 +124,10 @@ function circleOrange() {
     circle.style.background = orangeColors[Math.floor((index - 1) / 2)]
     console.log(index, circle.style.background)
     circle.style.transform = "scale(3.0)"
+    circle.style.opacity = 0.003 * (index + 15)
     if (index <= 3) {
-      circle.style.opacity = 0.05
-      circle.style.background = 'black'
+      circle.style.opacity = 0.03
+      circle.style.background = '#282C3C'
     }
   })
 }
@@ -138,9 +136,9 @@ function circleNormal() {
   circles.forEach(function (circle, index) {
     circle.style.background = colors[Math.floor((index - 1) / 2)]
     circle.style.transform = "scale(1.0)"
+    circle.style.opacity = 0.0013 * (index + 15)
     if (index <= 3) {
       circle.style.opacity = 0
-
     }
   })
 }
@@ -160,8 +158,8 @@ function animateCircles() {
     circle.y = y
 
     const nextCircle = circles[index + 1] || circles[0]
-    x += (nextCircle.x - x) * 0.2
-    y += (nextCircle.y - y) * 0.2
+    x += (nextCircle.x - x) * 0.18
+    y += (nextCircle.y - y) * 0.18
 
     // if (index == 25) {
     //   circle.x = coords.x
@@ -172,4 +170,5 @@ function animateCircles() {
   requestAnimationFrame(animateCircles)
 }
 
+circleNormal()
 animateCircles()
