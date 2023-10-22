@@ -41,7 +41,7 @@ topLight.castShadow = true
 
 const pointLight = new THREE.PointLight(0xFF8845, 4000, 500)
 
-const cursorLight = new THREE.PointLight(0x38A3A5, 1500, 100)
+const cursorLight = new THREE.PointLight(0x38A3A5, 800, 0)
 // pointLight.position.set(16, 15, 25)
 // pointLight.castShadow = true
 scene.add(topLight, pointLight, cursorLight)

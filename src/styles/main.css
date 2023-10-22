@@ -33,11 +33,11 @@ main {
   height: 32px;
   width: 32px;
   border-radius: 32px;
-  background-color: #e57b0a;
-  opacity: 0.1;
+  /* background-color: #e57b0a; */
+  opacity: 0;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 50px;
+  left: 50px;
   pointer-events: none;
   transition: background-color 0.1s ease, transform 0.2s ease-out;
   z-index: 10;
