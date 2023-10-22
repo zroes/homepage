@@ -12,10 +12,10 @@ const { title, desc, imgPath, link } = Astro.props;
 ---
 
 <div
-  class="bg-darker rounded-md outline outline-2 outline-offset-4 outline-dark/0 shadow-md hover:outline-verdigris hover:scale-105 hover:shadow-lg ease-in duration-100"
+  class="bg-darker rounded-md outline outline-2 outline-offset-4 outline-dark/0 shadow-md hover:outline-verdigris hover:scale-105 hover:shadow-lg active:scale-100 ease-in duration-100"
 >
-  <div class="select">
-    <a href={link}>
+  <div class="">
+    <a href={link} target="_blank">
       <img class="rounded-md" src={imgPath} alt={title} />
       <div class="p-5">
         <h3 class="text-primary">{title}</h3>

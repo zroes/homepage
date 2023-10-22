@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import AppCard from "../components/AppCard.astro";
 import Spacer from "../components/Spacer.astro";
 import Nav from "../components/Nav.astro";
+import Socials from "../components/Socials.astro";
 
 const towerDesc =
   "a website that enables users to organize, administer, and participate in events. users can easily create and join events from the homepage, and manage their events from the account page.";
@@ -16,13 +17,14 @@ const cookieDesc =
   <main class="">
     <Nav />
     <div class="md:mx-52">
-      <div class="">
+      <div>
         <Spacer />
         <h3 class="text-6xl font-medium text-primary/50 mb-6">I am</h3>
         <h1 class="text-9xl font-medium text-primary mb-9">Zack Roessler</h1>
-        <h6 class="text-3xl font-light text-primary leading-normal xl:mr-80">
+        <h3 class="text-3xl font-light text-primary leading-normal xl:mr-80">
           a software developer, with a passion for machine learning and ai
-        </h6>
+        </h3>
+        <Socials />
       </div>
       <Spacer />
       <Spacer />
@@ -81,6 +83,6 @@ const cookieDesc =
       </div>
     </div>
   </main>
-</Layout>
 
-<style></style>
+  <style></style>
+</Layout>
