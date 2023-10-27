@@ -17,12 +17,13 @@ const cookieDesc =
   <main class="">
     <Nav />
     <div class="md:mx-52">
+      <Spacer />
       <div>
-        <Spacer />
         <h3 class="text-6xl font-medium text-primary/50 mb-6">I am</h3>
         <h1 class="text-9xl font-medium text-primary mb-9">Zack Roessler</h1>
         <h3 class="text-3xl font-light text-primary leading-normal xl:mr-80">
-          a software developer, with a passion for machine learning and ai
+          a full-stack developer, perpetual learner, with an interest in machine
+          learning and ai
         </h3>
         <Socials />
       </div>
@@ -56,29 +57,31 @@ const cookieDesc =
           </div>
         </div>
       </div>
-      <div class="mt-96">
-        <div>
-          <h1 class="text-6xl font-medium text-primary">Applications</h1>
-          <div class="my-16 grid md:grid-cols-2 gap-16">
-            <AppCard
-              title="Tower"
-              desc={towerDesc}
-              imgPath="/images/tower.png"
-              link="https://zroes-tower.onrender.com/"
-            />
-            <AppCard
-              title="Grocery Run"
-              desc={groceryDesc}
-              imgPath="/images/grocery-run.png"
-              link="https://grocery-run.onrender.com/"
-            />
-            <AppCard
-              title="Thoughts Cookie"
-              desc={cookieDesc}
-              imgPath="/images/thoughts-cookie.png"
-              link="https://thoughts-cookie.netlify.app/#/"
-            />
-          </div>
+      <Spacer />
+      <Spacer />
+      <Spacer />
+
+      <div>
+        <h1 class="text-6xl font-medium text-primary">Applications</h1>
+        <div class="my-16 grid md:grid-cols-2 gap-16">
+          <AppCard
+            title="Tower"
+            desc={towerDesc}
+            imgPath="/images/tower.png"
+            link="https://zroes-tower.onrender.com/"
+          />
+          <AppCard
+            title="Grocery Run"
+            desc={groceryDesc}
+            imgPath="/images/grocery-run.png"
+            link="https://grocery-run.onrender.com/"
+          />
+          <AppCard
+            title="Thoughts Cookie"
+            desc={cookieDesc}
+            imgPath="/images/thoughts-cookie.png"
+            link="https://thoughts-cookie.netlify.app/#/"
+          />
         </div>
       </div>
     </div>
