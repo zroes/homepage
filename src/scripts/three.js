@@ -1,5 +1,4 @@
 import "../styles/main.css"
-
 import * as THREE from "three"
 // import Math
 
@@ -9,6 +8,7 @@ const scene = new THREE.Scene()
 
 scene.background = new THREE.Color(0x2D3142)
 
+// resize observer
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000)
 
 const renderer = new THREE.WebGLRenderer({
@@ -40,10 +40,10 @@ const topLight = new THREE.SpotLight(0xB6C6F0, 10000, 0)
 topLight.position.set(0, 80, 10)
 topLight.castShadow = true
 
-const pointLight = new THREE.PointLight(0xFF8845, 4000, 500)
+const pointLight = new THREE.PointLight(0xFF8845, 4000, 400)
 
-const cursorLight = new THREE.PointLight(0x38A3A5, 800, 0)
-
+const cursorLight = new THREE.PointLight(0x38A3A5, 1200, 0)
+cursorLight.position.setZ(4)
 scene.add(topLight, pointLight, cursorLight)
 
 // const lightHelper = new THREE.PointLightHelper(cursorLight)
@@ -51,9 +51,14 @@ scene.add(topLight, pointLight, cursorLight)
 
 
 let forward = true
+let yRot = 0
+let xRot = 0
 
 function animate() {
   requestAnimationFrame(animate)
+  cube.rotation.z += 0.006
+  yRot -= 0.0015
+  cube.rotation.y -= 0.0015
   document.onmousemove = (e) => {
     let x = e.clientX - window.innerWidth / 2
     let y = e.clientY - window.innerHeight / 2
@@ -62,24 +67,18 @@ function animate() {
     // pointLight.position.setY(5 + Math.abs(y / -25))
     pointLight.position.x = THREE.MathUtils.lerp(pointLight.position.x, x / -25, 0.03)
     pointLight.position.y = THREE.MathUtils.lerp(pointLight.position.y, 5 + Math.abs(y / -25), 0.03)
-    cursorLight.position.x = x / 14.2
-    cursorLight.position.y = 2 + y / -14.2
+    cursorLight.position.x = x / 16
+    cursorLight.position.y = y / -16
     let q = 0.0015
     x = x * q
     y = y * q
 
     // cube.rotation.x = y
-
-    cube.rotation.x = THREE.MathUtils.lerp(cube.rotation.x, y, 0.08)
-
-    cube.rotation.y = THREE.MathUtils.lerp(cube.rotation.y, x, 0.08)
+    cube.rotation.x = THREE.MathUtils.lerp(cube.rotation.x, y + xRot, 0.05)
+    cube.rotation.y = THREE.MathUtils.lerp(cube.rotation.y, x + yRot, 0.1)
     // console.log(cube.rotation.x, cube.rotation.y)
   }
-  cube.rotation.z += 0.006
-  // cube.rotation.x += 0.002
-  cube.rotation.y += 0.002
 
-  // console.log(forward)
   if (forward == true) {
     pointLight.position.z += 0.04
     cube.position.y -= 0.006
@@ -94,6 +93,28 @@ function animate() {
   }
   renderer.render(scene, camera)
 }
+
+function moveCube() {
+  const t = document.body.getBoundingClientRect().top
+  // console.log(cube.position.x)
+  cube.rotation.x = t * -0.0042
+  xRot = t * -0.0042
+  if (t > -725) {
+    cube.position.x = t * 0.05
+    cube.position.y = 14 + t * 0.02
+  }
+  else if (t > -1450) {
+    cube.position.x = -72.2 - t * 0.05
+    // cube.position.y = 14 + t * 0.02
+  }
+  else {
+    // console.log(t * 0.04)
+    cube.position.x = 0
+    cube.position.y = -58 - t * 0.04
+  }
+  // console.log(t)
+}
+document.body.onscroll = moveCube
 
 const ambientLight = new THREE.AmbientLight({ color: 0xFFFFFF }, 3)
 ambientLight.position.set(0, -30, 10)
